@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 
 export default function PaymentScreen({ navigation }) {
   const size = useSelector((state) => state.size);
-  console.log(size);
+  console.log(size, "from payment");
   return (
     <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
       <Text>Choose Payment Method</Text>

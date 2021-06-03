@@ -8,6 +8,7 @@ export default function FindCabinet({ navigation }) {
   const dispatch = useDispatch();
   const [checked, setChecked] = React.useState("20");
   React.useEffect(() => {
+    console.log(checked);
     dispatch(storeCabinetSize(checked));
   }, [checked]);
 
