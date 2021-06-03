@@ -1,1 +1,2 @@
 export const CABINET_SIZE = "CABINET_SIZE";
+export const RECEIVER_PHONE_NUM = "RECEIVER_PHONE_NUM";

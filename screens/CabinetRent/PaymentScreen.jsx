@@ -4,10 +4,11 @@ import { useSelector } from "react-redux";
 
 export default function PaymentScreen({ navigation }) {
   const size = useSelector((state) => state.size);
-  console.log(size, "from payment");
+  const phoneNum = useSelector((state) => state.phoneNum);
+  console.log(size, phoneNum, "from payment");
   return (
     <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-      <Text>Choose Payment Method</Text>
+      <Text>Số tiền thanh toán: 5000VND</Text>
     </View>
   );
 }
