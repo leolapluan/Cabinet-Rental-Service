@@ -1,7 +1,7 @@
-import { COUNTER_CHANGE } from "../constants";
-export function changeCount(count) {
+import { CABINET_SIZE } from "./constants";
+export function storeCabinetSize(size) {
   return {
-    type: COUNTER_CHANGE,
-    payload: count,
+    type: CABINET_SIZE,
+    payload: size,
   };
 }

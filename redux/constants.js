@@ -1,1 +1,1 @@
-export const COUNTER_CHANGE = "COUNTER_CHANGE";
+export const CABINET_SIZE = "CABINET_SIZE";

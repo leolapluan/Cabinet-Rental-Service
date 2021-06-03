@@ -6,7 +6,6 @@ import { Provider } from "react-redux";
 import React from "react";
 
 const store = configureStore();
-
 function RNRedux() {
   return (
     <Provider store={store}>
@@ -15,7 +14,7 @@ function RNRedux() {
   );
 }
 
-registerRootComponent(App);
+registerRootComponent(RNRedux);
 // import { AppRegistry } from "react-native";
 // import React from "react";
 // import App from "./App";

@@ -1,13 +1,13 @@
-import { COUNTER_CHANGE } from "./constants";
+import { CABINET_SIZE } from "./constants";
 const initialState = {
-  count: 0,
+  size: 0,
 };
 const countReducer = (state = initialState, action) => {
   switch (action.type) {
-    case COUNTER_CHANGE:
+    case CABINET_SIZE:
       return {
         ...state,
-        count: action.payload,
+        size: action.payload,
       };
     default:
       return state;
