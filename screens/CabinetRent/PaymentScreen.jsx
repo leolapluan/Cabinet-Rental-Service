@@ -9,6 +9,7 @@ export default function PaymentScreen({ navigation }) {
   return (
     <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
       <Text>Số tiền thanh toán: 5000VND</Text>
+      <Text>Hình thức thanh toán Momo</Text>
     </View>
   );
 }
