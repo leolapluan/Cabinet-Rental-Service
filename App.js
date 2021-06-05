@@ -7,6 +7,8 @@ import FindCabinet from "./screens/CabinetRent/FindCabinet";
 import PaymentScreen from "./screens/CabinetRent/PaymentScreen";
 import ReceiverPhoneNumber from "./screens/CabinetRent/ReceiverPhoneNumber";
 import Login from "./screens/CabinetRent/LoginScreen";
+import Signup from "./screens/CabinetRent/SignupScreen";
+
 
 function ProfileScreen({ navigation }) {
   useFocusEffect(
@@ -66,6 +68,10 @@ export default function App() {
         <Tab.Screen name="Find a cabinet">
           {() => (
             <SettingsStack.Navigator>
+              <SettingsStack.Screen
+                name="Signup"
+                component={Signup}
+              />
               <SettingsStack.Screen
                 name="Login"
                 component={Login}
