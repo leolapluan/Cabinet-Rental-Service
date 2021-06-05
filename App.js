@@ -6,6 +6,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import FindCabinet from "./screens/CabinetRent/FindCabinet";
 import PaymentScreen from "./screens/CabinetRent/PaymentScreen";
 import ReceiverPhoneNumber from "./screens/CabinetRent/ReceiverPhoneNumber";
+import Login from "./screens/CabinetRent/LoginScreen";
 
 function ProfileScreen({ navigation }) {
   useFocusEffect(
@@ -65,6 +66,10 @@ export default function App() {
         <Tab.Screen name="Find a cabinet">
           {() => (
             <SettingsStack.Navigator>
+              <SettingsStack.Screen
+                name="Login"
+                component={Login}
+              />
               <SettingsStack.Screen
                 name="Choose cabinet size"
                 component={FindCabinet}
