@@ -8,6 +8,11 @@ import PaymentScreen from "./screens/CabinetRent/PaymentScreen";
 import ReceiverPhoneNumber from "./screens/CabinetRent/ReceiverPhoneNumber";
 import Login from "./screens/CabinetRent/LoginScreen";
 import Signup from "./screens/CabinetRent/SignupScreen";
+import Trangchu from "./screens/CabinetRent/Trangchu";
+import Paymentbymomo from "./screens/CabinetRent/Paymentbymomo";
+import Infrom from "./screens/CabinetRent/Inform";
+
+
 
 
 function ProfileScreen({ navigation }) {
@@ -69,13 +74,29 @@ export default function App() {
           {() => (
             <SettingsStack.Navigator>
               <SettingsStack.Screen
+                name="Login"
+                component={Login}
+              />
+              <SettingsStack.Screen
                 name="Signup"
                 component={Signup}
               />
               <SettingsStack.Screen
-                name="Login"
-                component={Login}
+                name="Trang chủ "
+                component={Trangchu}
               />
+              
+              <SettingsStack.Screen
+                name="Payment by momo"
+                component={Paymentbymomo}
+              />
+              
+              
+              <SettingsStack.Screen
+                name="Inform"
+                component={Infrom}
+              />
+              
               <SettingsStack.Screen
                 name="Choose cabinet size"
                 component={FindCabinet}
