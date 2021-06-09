@@ -1,13 +1,20 @@
 import React from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
+import InfromSignup from './InfromSignup';
 
-export default function Signup()  {
+export default function Signup({navigation})  {
 //export default class App extends React.Component {
   state={
     username:"",
     password:"",
     phone:"",
     nhaplaipassword:""
+  }
+  function Login() {
+    navigation.navigate("Login");
+  }
+  function InfromSignup() {
+    navigation.navigate("InfromSignup");
   }
   //render(){
     return (
@@ -44,10 +51,10 @@ export default function Signup()  {
           placeholderTextColor="#003f5c"
           onChangeText={text => this.setState({nhaplaipassword:text})}/>
       </View>
-      <TouchableOpacity style={styles.signupBtn}>
+      <TouchableOpacity style={styles.signupBtn} onPress={() => InfromSignup()}>
         <Text style={styles.signupText}>Confirm </Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.signupBtn}>
+      <TouchableOpacity style={styles.signupBtn} onPress={() => Login()}>
         <Text style={styles.signupText}>Back </Text>
       </TouchableOpacity>
     </View>

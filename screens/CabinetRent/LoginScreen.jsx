@@ -3,12 +3,15 @@ import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-nativ
 
 export default function Login({ navigation })  {
 //export default class App extends React.Component {
-  state={
+state={
     username:"",
     password:""
   }
   function HandleConfirm() {
-    navigation.navigate("FindCabinet");
+    navigation.navigate("Trangchu");
+  }
+  function HandleConfirm2() {
+    navigation.navigate("Signup");
   }
   //render(){
     return (
@@ -29,14 +32,14 @@ export default function Login({ navigation })  {
             placeholderTextColor="#003f5c"
             onChangeText={text => this.setState({password:text})}/>
         </View>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => HandleConfirm()}>
           <Text style={styles.forgot}>Forgot Password?</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.loginBtn}>
+        <TouchableOpacity style={styles.loginBtn} onPress={() => HandleConfirm()} >
           <Text style={styles.loginText} >LOGIN</Text>
         </TouchableOpacity>
-        <TouchableOpacity>
-          <Text style={styles.loginText}>Signup</Text>
+        <TouchableOpacity  onPress={() => HandleConfirm2()} >
+          <Text style={styles.loginText}  >Signup</Text>
         </TouchableOpacity> 
       </View>
     );
@@ -83,6 +86,7 @@ const styles = StyleSheet.create({
     justifyContent:"center",
     marginTop:40,
     marginBottom:10
+    
   },
   loginText:{
     color:"black"
