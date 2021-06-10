@@ -5,7 +5,7 @@ import axios from "axios";
 export default function NotifyResult({ navigation }) {
   let feedKey = "rc-servo-590-number-1";
   let bodyParameter = {
-    value: 0,
+    value: 180,
   };
 
   const config = {
