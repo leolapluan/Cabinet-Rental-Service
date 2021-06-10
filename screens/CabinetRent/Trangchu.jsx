@@ -1,16 +1,23 @@
 import React from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
 
-export default function Trangchu()  {
+export default function Trangchu({navigation})  {
+
+  function FindCabinet() {
+    navigation.navigate("FindCabinet");
+  }
+  function RecipientPhonenumber() {
+    navigation.navigate("RecipientPhonenumber");
+  }
 //export default class App extends React.Component {
   //render(){
     return (
         <View style={styles.container}>
         <Text style={styles.logo}>BOX</Text> 
-        <TouchableOpacity style={styles.guidoBtn}>
+        <TouchableOpacity style={styles.guidoBtn} onPress={() => FindCabinet()} >
           <Text style={styles.loginText}>GỬI ĐỒ</Text>
         </TouchableOpacity>
-         <TouchableOpacity style={styles.nhandoBtn}>
+         <TouchableOpacity style={styles.nhandoBtn} onPress={() => RecipientPhonenumber()} >
           <Text style={styles.loginText}>NHẬN ĐỒ</Text>
         </TouchableOpacity>
       </View>

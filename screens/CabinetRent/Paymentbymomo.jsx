@@ -1,16 +1,19 @@
 import React from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
 
-export default function Paymentbymomo()  {
+export default function Paymentbymomo({navigation})  {
+  function PaymentScreen() {
+    navigation.navigate("PaymentScreen");
+  }
 //export default class App extends React.Component {
   //render(){
     return (
-        <View style={styles.container}>
+        <View style={styles.container}  onPress={() => PaymentScreen()}>
         <Text style={styles.logo}>PAYMENT</Text> 
-        <TouchableOpacity style={styles.momoBtn}>
+        <TouchableOpacity style={styles.momoBtn}  onPress={() => PaymentScreen()}>
           <Text style={styles.loginText}>MOMO</Text>
         </TouchableOpacity>
-         <TouchableOpacity style={styles.airpayBtn}>
+         <TouchableOpacity style={styles.airpayBtn}  onPress={() => PaymentScreen()}>
           <Text style={styles.loginText}>AIRPAY</Text>
         </TouchableOpacity>
       </View>

@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Button, View, Text } from "react-native";
+import { Button, View, Text,Navigator } from "react-native";
 import { NavigationContainer, useFocusEffect } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
@@ -11,9 +11,36 @@ import Signup from "./screens/CabinetRent/SignupScreen";
 import Trangchu from "./screens/CabinetRent/Trangchu";
 import Paymentbymomo from "./screens/CabinetRent/Paymentbymomo";
 import Infrom from "./screens/CabinetRent/Inform";
+import InfromSignup  from "./screens/CabinetRent/InfromSignup";
+import RecipientPhonenumber  from "./screens/CabinetRent/RecipientPhonenumber";
+import OTP  from "./screens/CabinetRent/OTP";
+import InfromNhando  from "./screens/CabinetRent/InfromNhando";
 
 
 
+
+
+
+// export default class App extends Component {
+//   renderScene(route, _navigator){
+//     switch(route.name){
+//       case 'Login': return(
+//         <Login/>
+//       );
+//       case 'Signup' : return(
+//         <Signup/>
+//       )
+//     }
+//   }
+//   render() {
+//     return(
+//       <Navigator
+//         initialRoute = {{name:'Login'}} 
+//         renderScene = {this.renderScene} 
+//         /> 
+//     );
+//   }
+// }
 
 function ProfileScreen({ navigation }) {
   useFocusEffect(
@@ -78,19 +105,38 @@ export default function App() {
                 component={Login}
               />
               <SettingsStack.Screen
+                name="Trangchu"
+                component={Trangchu}
+              />
+              <SettingsStack.Screen
+                name="FindCabinet"
+                component={FindCabinet}
+              />
+              <SettingsStack.Screen
+                name="RecipientPhonenumber"
+                component={RecipientPhonenumber}
+              />
+              
+              <SettingsStack.Screen
                 name="Signup"
                 component={Signup}
               />
-              <SettingsStack.Screen
-                name="Trang chủ "
-                component={Trangchu}
+               <SettingsStack.Screen
+                name="InfromSignup"
+                component={InfromSignup}
               />
-              
               <SettingsStack.Screen
-                name="Payment by momo"
+                name="InfromNhando"
+                component={InfromNhando}
+              />
+              <SettingsStack.Screen
+                name="Paymentbymomo"
                 component={Paymentbymomo}
               />
-              
+              <SettingsStack.Screen
+                name="OTP"
+                component={OTP}
+              />
               
               <SettingsStack.Screen
                 name="Inform"
@@ -98,15 +144,15 @@ export default function App() {
               />
               
               <SettingsStack.Screen
-                name="Choose cabinet size"
-                component={FindCabinet}
-              />
-              <SettingsStack.Screen
                 name="ReceiverPhoneNumber"
                 component={ReceiverPhoneNumber}
                 options={{ title: "Receiver Phone Number" }}
               />
-              <SettingsStack.Screen name="Payment" component={PaymentScreen} />
+              <SettingsStack.Screen 
+              name="Payment" 
+              component={PaymentScreen} 
+              />
+
             </SettingsStack.Navigator>
           )}
         </Tab.Screen>
