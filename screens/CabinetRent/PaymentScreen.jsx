@@ -3,9 +3,9 @@ import * as React from "react";
 import { useSelector } from "react-redux";
 
 export default function PaymentScreen({ navigation }) {
-  const size = useSelector((state) => state.size);
+  const cabinet = useSelector((state) => state.cabinet);
   const phoneNum = useSelector((state) => state.phoneNum);
-  console.log(size, phoneNum, "from payment");
+  console.log(cabinet, phoneNum, "from payment");
   function HandleConfirm() {
     navigation.navigate("NotifyResult");
   }

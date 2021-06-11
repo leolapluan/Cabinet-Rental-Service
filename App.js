@@ -21,6 +21,7 @@ import InfromSignup from "./screens/CabinetRent/InfromSignup";
 import RecipientPhonenumber from "./screens/CabinetRent/RecipientPhonenumber";
 import OTP from "./screens/CabinetRent/OTP";
 import InfromNhando from "./screens/CabinetRent/InfromNhando";
+import Finish from "./screens/Unlock/Finish";
 
 // export default class App extends Component {
 //   renderScene(route, _navigator){
@@ -164,6 +165,7 @@ export default function App() {
           {() => (
             <UnlockStack.Navigator>
               <UnlockStack.Screen name="Unlock" component={Unlock} />
+              <UnlockStack.Screen name="Finish" component={Finish} />
             </UnlockStack.Navigator>
           )}
         </Tab.Screen>

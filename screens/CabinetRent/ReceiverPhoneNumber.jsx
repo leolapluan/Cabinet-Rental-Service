@@ -15,7 +15,6 @@ function ReceiverPhoneNumber({ navigation }) {
   }
   return (
     <View>
-      {/* Phone number */}
       <TextInput
         label="Phone number"
         value={phoneNum}

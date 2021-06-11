@@ -1,8 +1,8 @@
-import { CABINET_SIZE, RECEIVER_PHONE_NUM } from "./constants";
-export function storeCabinetSize(size) {
+import { CABINET_SELECT, RECEIVER_PHONE_NUM } from "./constants";
+export function storeCabinetSelect(cabinet) {
   return {
-    type: CABINET_SIZE,
-    payload: size,
+    type: CABINET_SELECT,
+    payload: cabinet,
   };
 }
 export function storeReceiverPhoneNum(phoneNum) {

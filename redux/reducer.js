@@ -1,14 +1,14 @@
-import { CABINET_SIZE, RECEIVER_PHONE_NUM } from "./constants";
+import { CABINET_SELECT, RECEIVER_PHONE_NUM } from "./constants";
 const initialState = {
-  size: "",
+  cabinet: "",
   phoneNum: "",
 };
 const countReducer = (state = initialState, action) => {
   switch (action.type) {
-    case CABINET_SIZE:
+    case CABINET_SELECT:
       return {
         ...state,
-        size: action.payload,
+        cabinet: action.payload,
       };
     case RECEIVER_PHONE_NUM:
       return {
