@@ -4,7 +4,7 @@ import { DataTable } from "react-native-paper";
 
 const optionsPerPage = [2, 3, 4];
 
-export default function Transactions(props) {
+export default function Transactions({ navigation }) {
   return (
     <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
       <DataTable>
