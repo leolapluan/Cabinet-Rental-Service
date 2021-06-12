@@ -4,8 +4,8 @@ import axios from "axios";
 import { useSelector } from "react-redux";
 
 export default function NotifyResult({ navigation }) {
-  let feedKey = "rc-servo-590-number-1";
-  let id = useSelector((state) => state.cabinet);
+  const [feedKey, setFeedKey] = React.useState("");
+  let id = useSelector((state) => state.cabinet); //cell selected
   let bodyParameter = {
     value: 180,
   };
@@ -19,7 +19,17 @@ export default function NotifyResult({ navigation }) {
       "X-AIO-Key": "aio_vchX57ejfVneYNhz5W4l1Lk8p4sl",
     },
   };
-
+  React.useEffect(() => {
+    async function getCabinet() {
+      const response = await axios
+        .post(`http://192.168.1.11:3001/getCabinet`, { id: id })
+        .then((res) => {
+          setFeedKey(res.data[0].feedkey);
+        })
+        .catch((err) => console.log(err));
+    }
+    getCabinet();
+  }, [id]);
   function HandleLockDoor() {
     axios
       .post(

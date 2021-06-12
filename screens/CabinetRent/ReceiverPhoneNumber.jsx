@@ -16,7 +16,7 @@ function ReceiverPhoneNumber({ navigation }) {
   return (
     <View>
       <TextInput
-        label="Phone number"
+        label="Phone number receiver"
         value={phoneNum}
         onChangeText={(phoneNum) => setPhoneNum(phoneNum)}
       />
