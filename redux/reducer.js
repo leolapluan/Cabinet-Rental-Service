@@ -3,7 +3,7 @@ const initialState = {
   cabinet: "",
   phoneNum: "",
 };
-const countReducer = (state = initialState, action) => {
+const cabinetReducer = (state = initialState, action) => {
   switch (action.type) {
     case CABINET_SELECT:
       return {
@@ -19,4 +19,4 @@ const countReducer = (state = initialState, action) => {
       return state;
   }
 };
-export default countReducer;
+export default cabinetReducer;

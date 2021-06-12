@@ -2,6 +2,7 @@ import { Button, View, Text } from "react-native";
 import * as React from "react";
 import { useSelector } from "react-redux";
 import axios from "axios";
+import { DataTable } from "react-native-paper";
 
 export default function Unlock({ navigation }) {
   const cabinet = useSelector((state) => state.cabinet);
@@ -41,7 +42,19 @@ export default function Unlock({ navigation }) {
   }
   return (
     <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-      <Text>Open door</Text>
+      <DataTable>
+        <DataTable.Header>
+          <DataTable.Title>Dessert</DataTable.Title>
+          <DataTable.Title numeric>Calories</DataTable.Title>
+          <DataTable.Title numeric>Fat</DataTable.Title>
+        </DataTable.Header>
+
+        <DataTable.Row>
+          <DataTable.Cell>Frozen yogurt</DataTable.Cell>
+          <DataTable.Cell numeric>159</DataTable.Cell>
+          <DataTable.Cell numeric>6.0</DataTable.Cell>
+        </DataTable.Row>
+      </DataTable>
       <Button title="Confirm" onPress={() => HandleConfirm()} />
     </View>
   );
