@@ -16,7 +16,7 @@ export default function NotifyResult({ navigation }) {
   console.log(bodyServer);
   const config = {
     headers: {
-      "X-AIO-Key": "aio_YSxh54X6nv3Q4a2Cq5PB13fpwOa3",
+      "X-AIO-Key": "aio_vchX57ejfVneYNhz5W4l1Lk8p4sl",
     },
   };
 

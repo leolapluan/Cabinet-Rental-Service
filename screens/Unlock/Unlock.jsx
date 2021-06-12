@@ -20,7 +20,7 @@ export default function Unlock({ navigation }) {
     console.log(bodyServer);
     const config = {
       headers: {
-        "X-AIO-Key": "aio_YSxh54X6nv3Q4a2Cq5PB13fpwOa3",
+        "X-AIO-Key": "aio_vchX57ejfVneYNhz5W4l1Lk8p4sl",
       },
     };
     axios
@@ -44,15 +44,13 @@ export default function Unlock({ navigation }) {
     <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
       <DataTable>
         <DataTable.Header>
-          <DataTable.Title>Dessert</DataTable.Title>
-          <DataTable.Title numeric>Calories</DataTable.Title>
-          <DataTable.Title numeric>Fat</DataTable.Title>
+          <DataTable.Title>Số tủ</DataTable.Title>
+          <DataTable.Title>Trạng thái</DataTable.Title>
         </DataTable.Header>
 
         <DataTable.Row>
-          <DataTable.Cell>Frozen yogurt</DataTable.Cell>
-          <DataTable.Cell numeric>159</DataTable.Cell>
-          <DataTable.Cell numeric>6.0</DataTable.Cell>
+          <DataTable.Cell></DataTable.Cell>
+          <DataTable.Cell></DataTable.Cell>
         </DataTable.Row>
       </DataTable>
       <Button title="Confirm" onPress={() => HandleConfirm()} />
