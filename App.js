@@ -12,16 +12,17 @@ import ReceiverPhoneNumber from "./screens/CabinetRent/ReceiverPhoneNumber";
 import NotifyResult from "./screens/CabinetRent/NotifyResult";
 import Transactions from "./screens/Transactions/Transactions";
 import Unlock from "./screens/Unlock/Unlock";
-import Login from "./screens/CabinetRent/LoginScreen";
-import Signup from "./screens/CabinetRent/SignupScreen";
+import Login from "./screens/Authentification/LoginScreen";
+import Signup from "./screens/Authentification/SignupScreen";
 import Trangchu from "./screens/CabinetRent/Trangchu";
 import Paymentbymomo from "./screens/CabinetRent/Paymentbymomo";
 import Infrom from "./screens/CabinetRent/Inform";
-import InfromSignup from "./screens/CabinetRent/InfromSignup";
+import InfromSignup from "./screens/Authentification/NotifySignup";
 import RecipientPhonenumber from "./screens/CabinetRent/RecipientPhonenumber";
 import OTP from "./screens/CabinetRent/OTP";
 import InfromNhando from "./screens/CabinetRent/InfromNhando";
 import Finish from "./screens/Unlock/Finish";
+import NotifySignup from "./screens/Authentification/NotifySignup";
 
 // export default class App extends Component {
 //   renderScene(route, _navigator){
@@ -81,7 +82,9 @@ function DetailsScreen({ navigation }) {
 }
 
 export default function App() {
+  let isSignedin = false;
   const Tab = createBottomTabNavigator();
+  const AppStack = createStackNavigator();
   const SettingsStack = createStackNavigator();
   const TransactionsStack = createStackNavigator();
   const UnlockStack = createStackNavigator();
@@ -108,44 +111,55 @@ export default function App() {
         >
           {() => (
             <SettingsStack.Navigator>
-              <SettingsStack.Screen name="Login" component={Login} />
-              <SettingsStack.Screen name="Trangchu" component={Trangchu} />
-              <SettingsStack.Screen
-                name="FindCabinet"
-                component={FindCabinet}
-              />
-              <SettingsStack.Screen
-                name="RecipientPhonenumber"
-                component={RecipientPhonenumber}
-              />
-
-              <SettingsStack.Screen name="Signup" component={Signup} />
-              <SettingsStack.Screen
-                name="InfromSignup"
-                component={InfromSignup}
-              />
-              <SettingsStack.Screen
-                name="InfromNhando"
-                component={InfromNhando}
-              />
-              <SettingsStack.Screen
-                name="Paymentbymomo"
-                component={Paymentbymomo}
-              />
-              <SettingsStack.Screen name="OTP" component={OTP} />
-
-              <SettingsStack.Screen name="Inform" component={Infrom} />
-
-              <SettingsStack.Screen
-                name="ReceiverPhoneNumber"
-                component={ReceiverPhoneNumber}
-                options={{ title: "Receiver Phone Number" }}
-              />
-              <SettingsStack.Screen name="Payment" component={PaymentScreen} />
-              <SettingsStack.Screen
-                name="NotifyResult"
-                component={NotifyResult}
-              />
+              {isSignedin ? (
+                <>
+                  <SettingsStack.Screen name="Trangchu" component={Trangchu} />
+                  <SettingsStack.Screen
+                    name="FindCabinet"
+                    component={FindCabinet}
+                  />
+                  <SettingsStack.Screen
+                    name="RecipientPhonenumber"
+                    component={RecipientPhonenumber}
+                  />
+                  <SettingsStack.Screen
+                    name="InfromSignup"
+                    component={InfromSignup}
+                  />
+                  <SettingsStack.Screen
+                    name="InfromNhando"
+                    component={InfromNhando}
+                  />
+                  <SettingsStack.Screen
+                    name="Paymentbymomo"
+                    component={Paymentbymomo}
+                  />
+                  <SettingsStack.Screen name="OTP" component={OTP} />
+                  <SettingsStack.Screen name="Inform" component={Infrom} />
+                  <SettingsStack.Screen
+                    name="ReceiverPhoneNumber"
+                    component={ReceiverPhoneNumber}
+                    options={{ title: "Receiver Phone Number" }}
+                  />
+                  <SettingsStack.Screen
+                    name="Payment"
+                    component={PaymentScreen}
+                  />
+                  <SettingsStack.Screen
+                    name="NotifyResult"
+                    component={NotifyResult}
+                  />
+                </>
+              ) : (
+                <>
+                  <SettingsStack.Screen name="Login" component={Login} />
+                  <SettingsStack.Screen name="Signup" component={Signup} />
+                  <SettingsStack.Screen
+                    name="NotifySignup"
+                    component={NotifySignup}
+                  />
+                </>
+              )}
             </SettingsStack.Navigator>
           )}
         </Tab.Screen>

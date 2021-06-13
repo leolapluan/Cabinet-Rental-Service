@@ -9,11 +9,9 @@ import {
 
 export default function Login({ navigation }) {
   //export default class App extends React.Component {
-  const state = {
-    username: "",
-    password: "",
-  };
-  function HandleConfirm() {
+  const [username, setUsername] = React.useState("");
+  const [password, setPassword] = React.useState("");
+  function HandleLogin() {
     navigation.navigate("Trangchu");
   }
   function HandleConfirm2() {
@@ -28,7 +26,7 @@ export default function Login({ navigation }) {
           style={styles.inputText}
           placeholder="User Name..."
           placeholderTextColor="#003f5c"
-          onChangeText={(text) => this.setState({ username: text })}
+          onChangeText={(text) => setUsername(text)}
         />
       </View>
       <View style={styles.inputView}>
@@ -37,13 +35,13 @@ export default function Login({ navigation }) {
           style={styles.inputText}
           placeholder="Password..."
           placeholderTextColor="#003f5c"
-          onChangeText={(text) => this.setState({ password: text })}
+          onChangeText={(text) => setPassword(text)}
         />
       </View>
-      <TouchableOpacity onPress={() => HandleConfirm()}>
+      {/* <TouchableOpacity onPress={() => HandleConfirm()}>
         <Text style={styles.forgot}>Forgot Password?</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.loginBtn} onPress={() => HandleConfirm()}>
+      </TouchableOpacity> */}
+      <TouchableOpacity style={styles.loginBtn} onPress={() => HandleLogin()}>
         <Text style={styles.loginText}>LOGIN</Text>
       </TouchableOpacity>
       <TouchableOpacity onPress={() => HandleConfirm2()}>

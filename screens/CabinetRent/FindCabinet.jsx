@@ -70,7 +70,11 @@ export default function FindCabinet({ navigation }) {
       />
       <Text>40x40cm Quantity: {cabinets40.length}</Text>
       {/* <Button title="Confirm" onPress={() => navigation.navigate("Payment")} /> */}
-      <Button title="Confirm" onPress={() => HandleConfirm()} />
+      <Button
+        title="Confirm"
+        onPress={() => HandleConfirm()}
+        disabled={cabinetReady.length == 0 ? true : false}
+      />
     </View>
   );
 }
