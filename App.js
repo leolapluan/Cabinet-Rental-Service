@@ -84,6 +84,7 @@ function DetailsScreen({ navigation }) {
 }
 
 export default function App() {
+  const LoginStack = createStackNavigator();
   const Tab = createBottomTabNavigator();
   const AppStack = createStackNavigator();
   const SettingsStack = createStackNavigator();
@@ -93,29 +94,37 @@ export default function App() {
   const isSignedIn = useSelector((state) => state.isSignedIn);
   return (
     <NavigationContainer>
-      <Tab.Navigator
-        tabBarOptions={{
-          activeTintColor: "tomato",
-          inactiveTintColor: "gray",
-        }}
-      >
-        <Tab.Screen
-          name="Find a cabinet"
-          options={{
-            tabBarLabel: "Find a cabinet",
-            tabBarIcon: ({ color }) => (
-              <MaterialCommunityIcons
-                name="file-cabinet"
-                color={color}
-                size={26}
-              />
-            ),
-          }}
-        >
-          {() => (
-            <SettingsStack.Navigator>
-              {isSignedIn ? (
-                <>
+      {isSignedIn ? (
+        <>
+          <LoginStack.Navigator>
+            <LoginStack.Screen name="Login" component={Login} />
+            <LoginStack.Screen name="Signup" component={Signup} />
+            <LoginStack.Screen name="NotifySignup" component={NotifySignup} />
+          </LoginStack.Navigator>
+        </>
+      ) : (
+        <>
+          <Tab.Navigator
+            tabBarOptions={{
+              activeTintColor: "tomato",
+              inactiveTintColor: "gray",
+            }}
+          >
+            <Tab.Screen
+              name="Find a cabinet"
+              options={{
+                tabBarLabel: "Find a cabinet",
+                tabBarIcon: ({ color }) => (
+                  <MaterialCommunityIcons
+                    name="file-cabinet"
+                    color={color}
+                    size={26}
+                  />
+                ),
+              }}
+            >
+              {() => (
+                <SettingsStack.Navigator>
                   <SettingsStack.Screen name="Home" component={Home} />
                   <SettingsStack.Screen
                     name="FindCabinet"
@@ -152,82 +161,73 @@ export default function App() {
                     name="NotifyResult"
                     component={NotifyResult}
                   />
-                </>
-              ) : (
-                <>
-                  <SettingsStack.Screen name="Login" component={Login} />
-                  <SettingsStack.Screen name="Signup" component={Signup} />
-                  <SettingsStack.Screen
-                    name="NotifySignup"
-                    component={NotifySignup}
-                  />
-                </>
+                </SettingsStack.Navigator>
               )}
-            </SettingsStack.Navigator>
-          )}
-        </Tab.Screen>
-        <Tab.Screen
-          name="UnlockCabinet"
-          options={{
-            tabBarLabel: "Unlock Cabinet",
-            tabBarIcon: ({ color }) => (
-              <MaterialCommunityIcons
-                name="lock-open-variant-outline"
-                color={color}
-                size={26}
-              />
-            ),
-          }}
-        >
-          {() => (
-            <UnlockStack.Navigator>
-              <UnlockStack.Screen name="Unlock" component={Unlock} />
-              <UnlockStack.Screen name="Finish" component={Finish} />
-            </UnlockStack.Navigator>
-          )}
-        </Tab.Screen>
-        <Tab.Screen
-          name="Transactions"
-          options={{
-            tabBarLabel: "Transactions",
-            tabBarIcon: ({ color }) => (
-              <MaterialCommunityIcons
-                name="file-document-outline"
-                color={color}
-                size={26}
-              />
-            ),
-          }}
-        >
-          {() => (
-            <TransactionsStack.Navigator>
-              <TransactionsStack.Screen
-                name="Transactions"
-                component={Transactions}
-              />
-            </TransactionsStack.Navigator>
-          )}
-        </Tab.Screen>
-        <Tab.Screen
-          name="Profile"
-          options={{
-            tabBarLabel: "Profile",
-            tabBarIcon: ({ color }) => (
-              <MaterialCommunityIcons
-                name="human-male"
-                color={color}
-                size={26}
-              />
-            ),
-          }}
-        >
-          {() => (
-            <ProfileStack.Navigator>
-              <ProfileStack.Screen name="Profile" component={Profile} />
-            </ProfileStack.Navigator>
-          )}
-        </Tab.Screen>
-      </Tab.Navigator>
+            </Tab.Screen>
+            <Tab.Screen
+              name="UnlockCabinet"
+              options={{
+                tabBarLabel: "Unlock Cabinet",
+                tabBarIcon: ({ color }) => (
+                  <MaterialCommunityIcons
+                    name="lock-open-variant-outline"
+                    color={color}
+                    size={26}
+                  />
+                ),
+              }}
+            >
+              {() => (
+                <UnlockStack.Navigator>
+                  <UnlockStack.Screen name="Unlock" component={Unlock} />
+                  <UnlockStack.Screen name="Finish" component={Finish} />
+                </UnlockStack.Navigator>
+              )}
+            </Tab.Screen>
+            <Tab.Screen
+              name="Transactions"
+              options={{
+                tabBarLabel: "Transactions",
+                tabBarIcon: ({ color }) => (
+                  <MaterialCommunityIcons
+                    name="file-document-outline"
+                    color={color}
+                    size={26}
+                  />
+                ),
+              }}
+            >
+              {() => (
+                <TransactionsStack.Navigator>
+                  <TransactionsStack.Screen
+                    name="Transactions"
+                    component={Transactions}
+                  />
+                </TransactionsStack.Navigator>
+              )}
+            </Tab.Screen>
+            <Tab.Screen
+              name="Profile"
+              options={{
+                tabBarLabel: "Profile",
+                tabBarIcon: ({ color }) => (
+                  <MaterialCommunityIcons
+                    name="human-male"
+                    color={color}
+                    size={26}
+                  />
+                ),
+              }}
+            >
+              {() => (
+                <ProfileStack.Navigator>
+                  <ProfileStack.Screen name="Profile" component={Profile} />
+                </ProfileStack.Navigator>
+              )}
+            </Tab.Screen>
+          </Tab.Navigator>
+        </>
+      )}
     </NavigationContainer>
   );
 }

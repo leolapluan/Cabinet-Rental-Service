@@ -3,6 +3,8 @@ const initialState = {
   cabinet: "",
   phoneNum: "",
   isSignedIn: false,
+  fullname: "",
+  phonenumUser: "",
 };
 const cabinetReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -19,7 +21,9 @@ const cabinetReducer = (state = initialState, action) => {
     case IS_SIGNED_IN:
       return {
         ...state,
-        isSignedIn: action.payload,
+        isSignedIn: action.payload.isSignedIn,
+        fullname: action.payload.fullname,
+        phonenumUser: action.payload.phonenumUser,
       };
     default:
       return state;

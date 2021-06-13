@@ -11,9 +11,9 @@ export function storeReceiverPhoneNum(phoneNum) {
     payload: phoneNum,
   };
 }
-export function isSignedIn(isSignedIn) {
+export function isSignedIn(isSignedIn, fullname, phonenumUser) {
   return {
     type: IS_SIGNED_IN,
-    payload: isSignedIn,
+    payload: { isSignedIn, fullname, phonenumUser },
   };
 }
