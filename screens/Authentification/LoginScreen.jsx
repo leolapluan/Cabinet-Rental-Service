@@ -1,3 +1,4 @@
+import axios from "axios";
 import * as React from "react";
 import {
   StyleSheet,
@@ -6,13 +7,31 @@ import {
   TextInput,
   TouchableOpacity,
 } from "react-native";
+import { useDispatch } from "react-redux";
+import { isSignedIn } from "../../redux/actions";
+import Home from "../CabinetRent/Home";
 
 export default function Login({ navigation }) {
-  //export default class App extends React.Component {
+  const dispatch = useDispatch();
   const [username, setUsername] = React.useState("");
   const [password, setPassword] = React.useState("");
   function HandleLogin() {
-    navigation.navigate("Trangchu");
+    async function checkLogin() {
+      console.log(username, password);
+      const response = await axios
+        .post(`http://192.168.1.11:3001/login`, {
+          username: username,
+          password: password,
+        })
+        .then((res) => {
+          console.log(res);
+          dispatch(isSignedIn(true));
+        })
+        .catch((err) => console.log(err));
+    }
+    checkLogin();
+    // isSignedin = true;
+    // navigation.navigate("Home");
   }
   function HandleConfirm2() {
     navigation.navigate("Signup");

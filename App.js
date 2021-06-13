@@ -14,7 +14,7 @@ import Transactions from "./screens/Transactions/Transactions";
 import Unlock from "./screens/Unlock/Unlock";
 import Login from "./screens/Authentification/LoginScreen";
 import Signup from "./screens/Authentification/SignupScreen";
-import Trangchu from "./screens/CabinetRent/Trangchu";
+import Home from "./screens/CabinetRent/Home";
 import Paymentbymomo from "./screens/CabinetRent/Paymentbymomo";
 import Infrom from "./screens/CabinetRent/Inform";
 import InfromSignup from "./screens/Authentification/NotifySignup";
@@ -23,6 +23,8 @@ import OTP from "./screens/CabinetRent/OTP";
 import InfromNhando from "./screens/CabinetRent/InfromNhando";
 import Finish from "./screens/Unlock/Finish";
 import NotifySignup from "./screens/Authentification/NotifySignup";
+import { useSelector } from "react-redux";
+import Profile from "./screens/Profile/Profile";
 
 // export default class App extends Component {
 //   renderScene(route, _navigator){
@@ -82,12 +84,13 @@ function DetailsScreen({ navigation }) {
 }
 
 export default function App() {
-  let isSignedin = false;
   const Tab = createBottomTabNavigator();
   const AppStack = createStackNavigator();
   const SettingsStack = createStackNavigator();
   const TransactionsStack = createStackNavigator();
   const UnlockStack = createStackNavigator();
+  const ProfileStack = createStackNavigator();
+  const isSignedIn = useSelector((state) => state.isSignedIn);
   return (
     <NavigationContainer>
       <Tab.Navigator
@@ -111,9 +114,9 @@ export default function App() {
         >
           {() => (
             <SettingsStack.Navigator>
-              {isSignedin ? (
+              {isSignedIn ? (
                 <>
-                  <SettingsStack.Screen name="Trangchu" component={Trangchu} />
+                  <SettingsStack.Screen name="Home" component={Home} />
                   <SettingsStack.Screen
                     name="FindCabinet"
                     component={FindCabinet}
@@ -219,10 +222,9 @@ export default function App() {
           }}
         >
           {() => (
-            <HomeStack.Navigator>
-              <HomeStack.Screen name="Home" component={HomeScreen} />
-              <HomeStack.Screen name="Details" component={DetailsScreen} />
-            </HomeStack.Navigator>
+            <ProfileStack.Navigator>
+              <ProfileStack.Screen name="Profile" component={Profile} />
+            </ProfileStack.Navigator>
           )}
         </Tab.Screen>
       </Tab.Navigator>

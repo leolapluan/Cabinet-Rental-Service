@@ -1,7 +1,8 @@
-import { CABINET_SELECT, RECEIVER_PHONE_NUM } from "./constants";
+import { CABINET_SELECT, IS_SIGNED_IN, RECEIVER_PHONE_NUM } from "./constants";
 const initialState = {
   cabinet: "",
   phoneNum: "",
+  isSignedIn: false,
 };
 const cabinetReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -14,6 +15,11 @@ const cabinetReducer = (state = initialState, action) => {
       return {
         ...state,
         phoneNum: action.payload,
+      };
+    case IS_SIGNED_IN:
+      return {
+        ...state,
+        isSignedIn: action.payload,
       };
     default:
       return state;

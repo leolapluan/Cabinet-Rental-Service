@@ -1,2 +1,3 @@
 export const CABINET_SELECT = "CABINET_SELECT";
 export const RECEIVER_PHONE_NUM = "RECEIVER_PHONE_NUM";
+export const IS_SIGNED_IN = "IS_SIGNED_IN";
