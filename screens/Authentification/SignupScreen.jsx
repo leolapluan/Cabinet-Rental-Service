@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import {
   StyleSheet,
   Text,
@@ -17,8 +18,21 @@ export default function Signup({ navigation }) {
   function Login() {
     navigation.navigate("Login");
   }
-  function InfromSignup() {
-    navigation.navigate("InfromSignup");
+  function NotifySignup() {
+    axios
+      .post(`http://192.168.1.11:3001/AddNewAccount`, {
+        fullname: fullname,
+        username: username,
+        password: password,
+        phonenum: phonenum,
+      })
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    navigation.navigate("NotifySignup");
   }
   //render(){
   return (
