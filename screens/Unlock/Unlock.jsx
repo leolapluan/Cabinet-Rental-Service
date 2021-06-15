@@ -34,7 +34,7 @@ export default function Unlock({ navigation }) {
       })
       .catch((err) => console.log(err));
     axios
-      .post(`http://192.168.1.11:3001/ChangeCabinetState`, bodyServer)
+      .post(`http://localhost:3001/ChangeCabinetState`, bodyServer)
       .then((res) => {
         console.log(res.data, "update state cabinet server successful");
       });

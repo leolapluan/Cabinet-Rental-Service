@@ -20,7 +20,7 @@ export default function Signup({ navigation }) {
   }
   function NotifySignup() {
     axios
-      .post(`http://192.168.1.11:3001/AddNewAccount`, {
+      .post(`http://localhost:3001/AddNewAccount`, {
         fullname: fullname,
         username: username,
         password: password,
@@ -48,7 +48,6 @@ export default function Signup({ navigation }) {
       </View>
       <View style={styles.inputView}>
         <TextInput
-          secureTextEntry
           style={styles.inputText}
           placeholder="Username"
           placeholderTextColor="#003f5c"
@@ -66,7 +65,6 @@ export default function Signup({ navigation }) {
       </View>
       <View style={styles.inputView}>
         <TextInput
-          secureTextEntry
           style={styles.inputText}
           placeholder="Phone Number"
           placeholderTextColor="#003f5c"

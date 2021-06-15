@@ -19,13 +19,13 @@ export default function Login({ navigation }) {
     async function checkLogin() {
       console.log(username, password);
       const response = await axios
-        .post(`http://192.168.1.11:3001/login`, {
+        .post(`http://localhost:3001/login`, {
           username: username,
           password: password,
         })
         .then((res) => {
           console.log(res);
-          dispatch(isSignedIn(true));
+          // dispatch(isSignedIn(true, res.data.username, res.data.phonenum));
         })
         .catch((err) => console.log(err));
     }
