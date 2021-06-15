@@ -1,15 +1,13 @@
 // import registerRootComponent from "expo/build/launch/registerRootComponent";
 import registerRootComponent from "./node_modules/expo/build/launch/registerRootComponent";
 import App from "./App";
-import store, { persistor, rootReducer } from "./redux/store";
+import { persistor, store } from "./redux/store";
 import { Provider } from "react-redux";
 import React from "react";
 import { PersistGate } from "redux-persist/integration/react";
-import { applyMiddleware, createStore } from "redux";
-import thunk from "redux-thunk";
 
 function RNRedux() {
-  const store = createStore(rootReducer, applyMiddleware(thunk));
+  // const store = createStore(rootReducer, applyMiddleware(thunk));
   return (
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
