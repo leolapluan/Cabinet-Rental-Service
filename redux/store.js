@@ -12,9 +12,8 @@ const persistConfig = {
   storage: AsyncStorage,
 };
 
-const rootReducer = combineReducers({
-  cabinetReducer: persistReducer(persistConfig, cabinetReducer),
-});
+const rootReducer = persistReducer(persistConfig, cabinetReducer);
+
 const store = createStore(rootReducer, applyMiddleware(thunk, logger));
 const persistor = persistStore(store);
 export { store, persistor };
