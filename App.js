@@ -91,9 +91,10 @@ export default function App() {
   const UnlockStack = createStackNavigator();
   const ProfileStack = createStackNavigator();
   let isSignedIn = useSelector((state) => state.isSignedIn);
+  console.log(isSignedIn);
   return (
     <NavigationContainer>
-      {isSignedIn ? (
+      {!isSignedIn ? (
         <>
           <LoginStack.Navigator>
             <LoginStack.Screen name="Login" component={Login} />
