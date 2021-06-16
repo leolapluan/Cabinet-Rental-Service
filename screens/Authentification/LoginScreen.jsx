@@ -9,7 +9,6 @@ import {
 } from "react-native";
 import { useDispatch } from "react-redux";
 import { isSignedIn } from "../../redux/actions";
-import Home from "../CabinetRent/Home";
 
 export default function Login({ navigation }) {
   const dispatch = useDispatch();
@@ -25,7 +24,9 @@ export default function Login({ navigation }) {
         })
         .then((res) => {
           console.log(res);
-          dispatch(isSignedIn(true, res.data.username, res.data.phonenum));
+          dispatch(
+            isSignedIn(true, res.data[0].username, res.data[0].phonenum)
+          );
         })
         .catch((err) => console.log(err));
     }

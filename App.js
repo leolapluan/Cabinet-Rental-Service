@@ -4,7 +4,6 @@ import { NavigationContainer, useFocusEffect } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
-import Ionicons from "react-native-vector-icons/Ionicons";
 
 import FindCabinet from "./screens/CabinetRent/FindCabinet";
 import PaymentScreen from "./screens/CabinetRent/PaymentScreen";
@@ -91,7 +90,7 @@ export default function App() {
   const TransactionsStack = createStackNavigator();
   const UnlockStack = createStackNavigator();
   const ProfileStack = createStackNavigator();
-  const isSignedIn = useSelector((state) => state.isSignedIn);
+  let isSignedIn = useSelector((state) => state.isSignedIn);
   return (
     <NavigationContainer>
       {isSignedIn ? (

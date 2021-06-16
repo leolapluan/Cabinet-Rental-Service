@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { View } from "react-native";
 import { Button, Text } from "react-native-paper";
 import { useDispatch, useSelector } from "react-redux";
@@ -11,7 +11,6 @@ function Profile({ navigation }) {
   function HandleLogOut() {
     console.log("logout run");
     dispatch(isSignedIn(false, "", ""));
-    navigation.navigate("Login");
   }
   return (
     <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
