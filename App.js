@@ -91,7 +91,7 @@ export default function App() {
   const TransactionsStack = createStackNavigator();
   const UnlockStack = createStackNavigator();
   const ProfileStack = createStackNavigator();
-  const isSignedIn = true;
+  const isSignedIn = useSelector((state) => state.isSignedIn);
   return (
     <NavigationContainer>
       {isSignedIn ? (

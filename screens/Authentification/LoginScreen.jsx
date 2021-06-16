@@ -25,7 +25,7 @@ export default function Login({ navigation }) {
         })
         .then((res) => {
           console.log(res);
-          // dispatch(isSignedIn(true, res.data.username, res.data.phonenum));
+          dispatch(isSignedIn(true, res.data.username, res.data.phonenum));
         })
         .catch((err) => console.log(err));
     }
