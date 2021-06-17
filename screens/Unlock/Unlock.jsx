@@ -20,7 +20,7 @@ export default function Unlock({ navigation }) {
     console.log(bodyServer);
     const config = {
       headers: {
-        "X-AIO-Key": "aio_vchX57ejfVneYNhz5W4l1Lk8p4sl",
+        "X-AIO-Key": "aio_XYOl388NsVcahTof32jXRcGWJbVi",
       },
     };
     axios
@@ -53,7 +53,7 @@ export default function Unlock({ navigation }) {
           <DataTable.Cell></DataTable.Cell>
         </DataTable.Row>
       </DataTable>
-      <Button title="Confirm" onPress={() => HandleConfirm()} />
+      <Button title="Unlock door" onPress={() => HandleConfirm()} />
     </View>
   );
 }

@@ -1,14 +1,14 @@
-import { CABINET_SELECT, IS_SIGNED_IN, RECEIVER_PHONE_NUM } from "./constants";
+import { CABINET_SELECT, IS_SIGNED_IN, REGISTER_PHONE_NUM } from "./constants";
 export function storeCabinetSelect(cabinet) {
   return {
     type: CABINET_SELECT,
     payload: cabinet,
   };
 }
-export function storeReceiverPhoneNum(phoneNum) {
+export function storeRegisterPhoneNum(phoneNumSender, phoneNumReceiver) {
   return {
-    type: RECEIVER_PHONE_NUM,
-    payload: phoneNum,
+    type: REGISTER_PHONE_NUM,
+    payload: { phoneNumSender, phoneNumReceiver },
   };
 }
 export function isSignedIn(isSignedIn, fullname, phonenumUser) {

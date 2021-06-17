@@ -7,7 +7,7 @@ import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityI
 
 import FindCabinet from "./screens/CabinetRent/FindCabinet";
 import PaymentScreen from "./screens/CabinetRent/PaymentScreen";
-import ReceiverPhoneNumber from "./screens/CabinetRent/ReceiverPhoneNumber";
+import ReceiverPhoneNumber from "./screens/CabinetRent/RegisterPhoneNumber";
 import NotifyResult from "./screens/CabinetRent/NotifyResult";
 import Transactions from "./screens/Transactions/Transactions";
 import Unlock from "./screens/Unlock/Unlock";
@@ -17,7 +17,7 @@ import Home from "./screens/CabinetRent/Home";
 import Paymentbymomo from "./screens/CabinetRent/Paymentbymomo";
 import Infrom from "./screens/CabinetRent/Inform";
 import InfromSignup from "./screens/Authentification/NotifySignup";
-import RecipientPhonenumber from "./screens/CabinetRent/RecipientPhonenumber";
+import RegisterPhoneNumber from "./screens/CabinetRent/RegisterPhoneNumber";
 import OTP from "./screens/CabinetRent/OTP";
 import InfromNhando from "./screens/CabinetRent/InfromNhando";
 import Finish from "./screens/Unlock/Finish";
@@ -131,8 +131,8 @@ export default function App() {
                     component={FindCabinet}
                   />
                   <SettingsStack.Screen
-                    name="RecipientPhonenumber"
-                    component={RecipientPhonenumber}
+                    name="RegisterPhoneNumber"
+                    component={RegisterPhoneNumber}
                   />
                   <SettingsStack.Screen
                     name="InfromSignup"
