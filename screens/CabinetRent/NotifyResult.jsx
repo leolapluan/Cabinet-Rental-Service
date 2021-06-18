@@ -53,7 +53,7 @@ export default function NotifyResult({ navigation }) {
       .post(`http://localhost:3001/AddTransactionInProgress`, {
         PhoneNumSender: phoneNumSender,
         PhoneNumReceiver: phoneNumReceiver,
-        CabintetID: id,
+        CabinetID: id,
         UserID: userId,
       })
       .then((res) => {

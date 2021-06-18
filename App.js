@@ -20,7 +20,6 @@ import InfromSignup from "./screens/Authentification/NotifySignup";
 import RegisterPhoneNumber from "./screens/CabinetRent/RegisterPhoneNumber";
 import OTP from "./screens/CabinetRent/OTP";
 import InfromNhando from "./screens/CabinetRent/InfromNhando";
-import Finish from "./screens/Unlock/Finish";
 import NotifySignup from "./screens/Authentification/NotifySignup";
 import { useSelector } from "react-redux";
 import Profile from "./screens/Profile/Profile";
@@ -180,7 +179,6 @@ export default function App() {
               {() => (
                 <UnlockStack.Navigator>
                   <UnlockStack.Screen name="Unlock" component={Unlock} />
-                  <UnlockStack.Screen name="Finish" component={Finish} />
                 </UnlockStack.Navigator>
               )}
             </Tab.Screen>
