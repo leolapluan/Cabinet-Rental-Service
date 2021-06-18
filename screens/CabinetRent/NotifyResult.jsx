@@ -6,6 +6,9 @@ import { useSelector } from "react-redux";
 export default function NotifyResult({ navigation }) {
   const [feedKey, setFeedKey] = React.useState("");
   let id = useSelector((state) => state.cabinet); //cell selected
+  let phoneNumSender = useSelector((state) => state.phoneNumSender);
+  let phoneNumReceiver = useSelector((state) => state.phoneNumReceiver);
+  let userId = useSelector((state) => state.userId);
   let bodyParameter = {
     value: 180,
   };
@@ -45,6 +48,16 @@ export default function NotifyResult({ navigation }) {
       .post(`http://localhost:3001/ChangeCabinetState`, bodyServer)
       .then((res) => {
         console.log(res.data, "update state cabinet server successful");
+      });
+    axios
+      .post(`http://localhost:3001/AddTransactionInProgress`, {
+        PhoneNumSender: phoneNumSender,
+        PhoneNumReceiver: phoneNumReceiver,
+        CabintetID: id,
+        UserID: userId,
+      })
+      .then((res) => {
+        console.log(res.data, "New transaction has been created");
       });
   }
   return (

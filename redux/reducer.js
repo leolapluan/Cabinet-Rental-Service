@@ -6,6 +6,7 @@ const initialState = {
   isSignedIn: false,
   fullname: "",
   phonenumUser: "",
+  userId: null,
 };
 const cabinetReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -26,6 +27,7 @@ const cabinetReducer = (state = initialState, action) => {
         isSignedIn: action.payload.isSignedIn,
         fullname: action.payload.fullname,
         phonenumUser: action.payload.phonenumUser,
+        userId: action.payload.userId,
       };
     default:
       return state;
