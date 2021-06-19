@@ -1,8 +1,9 @@
 import React, { useEffect } from "react";
 import { View } from "react-native";
-import { Button, Text } from "react-native-paper";
+import { Button, Card, Avatar, Title, Paragraph } from "react-native-paper";
 import { useDispatch, useSelector } from "react-redux";
 import { isSignedIn } from "../../redux/actions";
+const LeftContent = (props) => <Avatar.Icon {...props} icon="folder" />;
 
 function Profile({ navigation }) {
   const dispatch = useDispatch();
@@ -15,10 +16,25 @@ function Profile({ navigation }) {
   }
   return (
     <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-      <Text>Customer ID: {userId}</Text>
-      <Text>Customer Name: {fullname}</Text>
-      <Text>Customer Phone Number: {phonenumUser}</Text>
-      <Button title="Log Out" onPress={() => HandleLogOut()} />
+      <Card>
+        <Card.Title
+          title={"User ID:" + userId}
+          subtitle="Customer"
+          left={LeftContent}
+        />
+        <Card.Content>
+          <Title>{fullname}</Title>
+          <Paragraph>Phone number: {phonenumUser}</Paragraph>
+        </Card.Content>
+        <Card.Cover
+          source={{
+            uri: "https://cdn.icon-icons.com/icons2/1622/PNG/512/3741756-bussiness-ecommerce-marketplace-onlinestore-store-user_108907.png",
+          }}
+        />
+        <Card.Actions>
+          <Button onPress={() => HandleLogOut()}>Log out</Button>
+        </Card.Actions>
+      </Card>
     </View>
   );
 }

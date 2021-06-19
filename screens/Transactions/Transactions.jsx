@@ -1,17 +1,21 @@
 import axios from "axios";
 import * as React from "react";
+import { useEffect } from "react";
 import { View } from "react-native";
 import { DataTable } from "react-native-paper";
 
 export default function Transactions({ navigation }) {
   const [trades, setTrades] = React.useState([]);
-  async function getHistoryTrades() {
-    await axios
-      .get("http://localhost:3001/historyTrades")
-      .then((res) => setTrades([...res.data]))
-      .catch((err) => console.log(err));
-  }
-  getHistoryTrades();
+  useEffect(() => {
+    async function getHistoryTrades() {
+      await axios
+        .get("http://localhost:3001/historyTrades")
+        .then((res) => setTrades([...res.data]))
+        .catch((err) => console.log(err));
+    }
+    getHistoryTrades();
+  }, []);
+
   return (
     <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
       <DataTable>
