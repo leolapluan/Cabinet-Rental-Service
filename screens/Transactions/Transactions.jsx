@@ -1,7 +1,7 @@
 import axios from "axios";
 import * as React from "react";
 import { useEffect } from "react";
-import { View } from "react-native";
+import { View, ScrollView } from "react-native";
 import { DataTable } from "react-native-paper";
 
 export default function Transactions({ navigation }) {
@@ -17,7 +17,9 @@ export default function Transactions({ navigation }) {
   }, []);
 
   return (
-    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+    <ScrollView
+      style={{ backgroundColor: "rgb(166, 233, 241)", marginHorizontal: 20 }}
+    >
       <DataTable>
         <DataTable.Header>
           <DataTable.Title>ID</DataTable.Title>
@@ -42,6 +44,6 @@ export default function Transactions({ navigation }) {
           </DataTable.Row>
         ))}
       </DataTable>
-    </View>
+    </ScrollView>
   );
 }

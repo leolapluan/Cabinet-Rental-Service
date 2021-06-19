@@ -73,6 +73,7 @@ export default function Unlock({ navigation }) {
       state: "ready",
       id: cabinetID,
     };
+    //unlock iot device
     axios
       .post(
         `https://io.adafruit.com/api/v2/Leo1601/feeds/${feedKey}/data`,
@@ -83,6 +84,7 @@ export default function Unlock({ navigation }) {
         console.log(res.data, "unlock cabinet successful");
       })
       .catch((err) => console.log(err));
+    //change cabinet state in cabinet
     axios
       .post(`http://localhost:3001/ChangeCabinetState`, bodyServer)
       .then((res) => {
@@ -100,37 +102,47 @@ export default function Unlock({ navigation }) {
       })
       .then((res) => console.log(res.data, "New history trade created"))
       .catch((err) => console.log(err));
+    //delete transaction
+    axios
+      .post(`http://localhost:3001/deleteTransaction`, {
+        Cabinet_ID: cabinetID,
+      })
+      .then((res) => console.log("Delete successful", res))
+      .catch((err) => console.log(err));
   }
   return (
     <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-      <DataTable>
-        <DataTable.Header>
-          <DataTable.Title>Number of cell</DataTable.Title>
-          <DataTable.Title>Status</DataTable.Title>
-          <DataTable.Title>Time Arrive</DataTable.Title>
-          <DataTable.Title>Phone Number Of Sender</DataTable.Title>
-          <DataTable.Title>Phone Number Of Receiver</DataTable.Title>
-        </DataTable.Header>
+      {transactionInfo.Cabinet_ID ? (
+        <DataTable>
+          <DataTable.Header>
+            <DataTable.Title>Number of cell</DataTable.Title>
+            <DataTable.Title>Status</DataTable.Title>
+            <DataTable.Title>Time Arrive</DataTable.Title>
+            <DataTable.Title>Phone Number Of Sender</DataTable.Title>
+            <DataTable.Title>Phone Number Of Receiver</DataTable.Title>
+            <DataTable.Title>Action</DataTable.Title>
+          </DataTable.Header>
 
-        <DataTable.Row>
-          <DataTable.Cell>{transactionInfo.Cabinet_ID}</DataTable.Cell>
-          <DataTable.Cell>
-            {stateDevice == "180" ? "Locked" : "Open"}
-          </DataTable.Cell>
-          <DataTable.Cell>{transactionInfo.Time_Arrive}</DataTable.Cell>
-          <DataTable.Cell>{transactionInfo.PhoneNum_Sender}</DataTable.Cell>
-          <DataTable.Cell>{transactionInfo.PhoneNumReceiver}</DataTable.Cell>
-        </DataTable.Row>
-      </DataTable>
-      {isFinished ? (
-        <Text>Thank you for using our service</Text>
+          <DataTable.Row>
+            <DataTable.Cell>{transactionInfo.Cabinet_ID}</DataTable.Cell>
+            <DataTable.Cell>
+              {stateDevice == "180" ? "Locked" : "Open"}
+            </DataTable.Cell>
+            <DataTable.Cell>{transactionInfo.Time_Arrive}</DataTable.Cell>
+            <DataTable.Cell>{transactionInfo.PhoneNum_Sender}</DataTable.Cell>
+            <DataTable.Cell>{transactionInfo.PhoneNumReceiver}</DataTable.Cell>
+            <DataTable.Cell>
+              <Button
+                title="Unlock door"
+                onPress={() =>
+                  HandleConfirm(cabinetInfo.feedkey, transactionInfo.Cabinet_ID)
+                }
+              />
+            </DataTable.Cell>
+          </DataTable.Row>
+        </DataTable>
       ) : (
-        <Button
-          title="Unlock door"
-          onPress={() =>
-            HandleConfirm(cabinetInfo.feedkey, transactionInfo.Cabinet_ID)
-          }
-        />
+        <Text>Thank you for using our service</Text>
       )}
     </View>
   );
