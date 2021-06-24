@@ -5,11 +5,12 @@ import { View, ScrollView } from "react-native";
 import { DataTable } from "react-native-paper";
 
 export default function Transactions({ navigation }) {
+  const User_ID = useSelector((state) => state.userId);
   const [trades, setTrades] = React.useState([]);
   useEffect(() => {
     async function getHistoryTrades() {
       await axios
-        .get("http://localhost:3001/historyTrades")
+        .get("http://localhost:3001/historyTrades", { User_ID })
         .then((res) => setTrades([...res.data]))
         .catch((err) => console.log(err));
     }
