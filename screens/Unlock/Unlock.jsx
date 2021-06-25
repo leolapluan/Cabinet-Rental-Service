@@ -109,6 +109,7 @@ export default function Unlock({ navigation }) {
       })
       .then((res) => console.log("Delete successful", res))
       .catch((err) => console.log(err));
+    window.location.reload();
   }
   return (
     <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>

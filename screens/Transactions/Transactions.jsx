@@ -3,6 +3,7 @@ import * as React from "react";
 import { useEffect } from "react";
 import { View, ScrollView } from "react-native";
 import { DataTable } from "react-native-paper";
+import { useSelector } from "react-redux";
 
 export default function Transactions({ navigation }) {
   const User_ID = useSelector((state) => state.userId);
