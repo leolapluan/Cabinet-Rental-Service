@@ -14,7 +14,6 @@ import Unlock from "./screens/Unlock/Unlock";
 import Login from "./screens/Authentification/LoginScreen";
 import Signup from "./screens/Authentification/SignupScreen";
 import Home from "./screens/CabinetRent/Home";
-import Paymentbymomo from "./screens/CabinetRent/Paymentbymomo";
 import Infrom from "./screens/CabinetRent/Inform";
 import InfromSignup from "./screens/Authentification/NotifySignup";
 import RegisterPhoneNumber from "./screens/CabinetRent/RegisterPhoneNumber";
@@ -23,6 +22,7 @@ import InfromNhando from "./screens/CabinetRent/InfromNhando";
 import NotifySignup from "./screens/Authentification/NotifySignup";
 import { useSelector } from "react-redux";
 import Profile from "./screens/Profile/Profile";
+import PaymentOption from "./screens/CabinetRent/PaymentOption";
 
 // export default class App extends Component {
 //   renderScene(route, _navigator){
@@ -141,16 +141,16 @@ export default function App() {
                     name="InfromNhando"
                     component={InfromNhando}
                   />
-                  <SettingsStack.Screen
-                    name="Paymentbymomo"
-                    component={Paymentbymomo}
-                  />
                   <SettingsStack.Screen name="OTP" component={OTP} />
                   <SettingsStack.Screen name="Inform" component={Infrom} />
                   <SettingsStack.Screen
                     name="ReceiverPhoneNumber"
                     component={ReceiverPhoneNumber}
                     options={{ title: "Receiver Phone Number" }}
+                  />
+                  <SettingsStack.Screen
+                    name="PaymentMethod"
+                    component={PaymentOption}
                   />
                   <SettingsStack.Screen
                     name="Payment"

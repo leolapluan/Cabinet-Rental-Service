@@ -12,7 +12,7 @@ function RegisterPhoneNumber({ navigation }) {
   const [phoneNumReceiver, setPhoneNumReceiver] = React.useState("");
   function HandleConfirm() {
     dispatch(storeRegisterPhoneNum(phoneNumSender, phoneNumReceiver));
-    navigation.navigate("Payment");
+    navigation.navigate("PaymentMethod");
   }
   return (
     <View>
