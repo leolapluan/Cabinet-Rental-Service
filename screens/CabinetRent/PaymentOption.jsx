@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import {
   StyleSheet,
   Text,
@@ -6,20 +6,27 @@ import {
   TextInput,
   TouchableOpacity,
   Linking,
+  Button,
 } from "react-native";
 
 export default function PaymentOption({ navigation }) {
   function PaymentOption() {
     Linking.openURL("whatsapp://app");
   }
-  //export default class App extends React.Component {
-  //render(){
+  const OpenSettingsButton = ({ children }) => {
+    const handlePress = useCallback(async () => {
+      // Open the custom settings if the app has one
+      await Linking.openURL("whatsapp://app");
+    }, []);
+
+    return <Button title={children} onPress={handlePress} />;
+  };
   return (
     <View style={styles.container} onPress={() => PaymentOption()}>
       <Text style={styles.logo}>PAYMENT</Text>
-      <TouchableOpacity style={styles.momoBtn} onPress={() => PaymentOption()}>
-        <Text style={styles.loginText}>MOMO</Text>
-      </TouchableOpacity>
+
+      <OpenSettingsButton>Momo Payment</OpenSettingsButton>
+
       <TouchableOpacity
         style={styles.airpayBtn}
         onPress={() => PaymentOption()}

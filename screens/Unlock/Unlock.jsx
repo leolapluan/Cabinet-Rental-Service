@@ -12,7 +12,7 @@ export default function Unlock({ navigation }) {
   const [isFinished, setIsFinished] = React.useState(0);
   const config = {
     headers: {
-      "X-AIO-Key": "aio_XYOl388NsVcahTof32jXRcGWJbVi",
+      "X-AIO-Key": "aio_rhHs65QhcN9QxYG9hEK1MVnqPM0V",
     },
   };
 
@@ -20,7 +20,7 @@ export default function Unlock({ navigation }) {
   React.useEffect(() => {
     async function getTransaction() {
       const response = await axios
-        .post(`http://localhost:3001/getCabinetByUser`, { userID: userId })
+        .post(`http://192.168.1.3:3001/getCabinetByUser`, { userID: userId })
         .then((res) => {
           console.log("Transaction:", res.data[0]);
           setTransactionInfo({ ...res.data[0] });
@@ -33,7 +33,7 @@ export default function Unlock({ navigation }) {
   React.useEffect(() => {
     async function getCabinet() {
       const response = await axios
-        .post(`http://localhost:3001/getCabinet`, {
+        .post(`http://192.168.1.3:3001/getCabinet`, {
           id: transactionInfo.Cabinet_ID,
         })
         .then((res) => {
@@ -86,14 +86,14 @@ export default function Unlock({ navigation }) {
       .catch((err) => console.log(err));
     //change cabinet state in cabinet
     axios
-      .post(`http://localhost:3001/ChangeCabinetState`, bodyServer)
+      .post(`http://192.168.1.3:3001/ChangeCabinetState`, bodyServer)
       .then((res) => {
         console.log(res.data, "update state cabinet server successful");
       })
       .catch((err) => console.log(err));
     //add to history trade
     axios
-      .post(`http://localhost:3001/AddHistoryTrade`, {
+      .post(`http://192.168.1.3:3001/AddHistoryTrade`, {
         Time_Arrive: transactionInfo.Time_Arrive,
         PhoneNumSender: transactionInfo.PhoneNum_Sender,
         PhoneNumReceiver: transactionInfo.PhoneNumReceiver,
@@ -104,7 +104,7 @@ export default function Unlock({ navigation }) {
       .catch((err) => console.log(err));
     //delete transaction
     axios
-      .post(`http://localhost:3001/deleteTransaction`, {
+      .post(`http://192.168.1.3:3001/deleteTransaction`, {
         Cabinet_ID: cabinetID,
       })
       .then((res) => console.log("Delete successful", res))

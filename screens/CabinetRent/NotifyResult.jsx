@@ -19,13 +19,13 @@ export default function NotifyResult({ navigation }) {
   console.log(bodyServer);
   const config = {
     headers: {
-      "X-AIO-Key": "aio_XYOl388NsVcahTof32jXRcGWJbVi",
+      "X-AIO-Key": "aio_rhHs65QhcN9QxYG9hEK1MVnqPM0V",
     },
   };
   React.useEffect(() => {
     async function getCabinet() {
       const response = await axios
-        .post(`http://localhost:3001/getCabinet`, { id: id })
+        .post(`http://192.168.1.3:3001/getCabinet`, { id: id })
         .then((res) => {
           setFeedKey(res.data[0].feedkey);
         })
@@ -45,12 +45,12 @@ export default function NotifyResult({ navigation }) {
       })
       .catch((err) => console.log(err));
     axios
-      .post(`http://localhost:3001/ChangeCabinetState`, bodyServer)
+      .post(`http://192.168.1.3:3001/ChangeCabinetState`, bodyServer)
       .then((res) => {
         console.log(res.data, "update state cabinet server successful");
       });
     axios
-      .post(`http://localhost:3001/AddTransactionInProgress`, {
+      .post(`http://192.168.1.3:3001/AddTransactionInProgress`, {
         PhoneNumSender: phoneNumSender,
         PhoneNumReceiver: phoneNumReceiver,
         CabinetID: id,
