@@ -25,7 +25,7 @@ export default function NotifyResult({ navigation }) {
   React.useEffect(() => {
     async function getCabinet() {
       const response = await axios
-        .post(`http://192.168.1.3:3001/getCabinet`, { id: id })
+        .post(`http://192.168.1.4:3001/getCabinet`, { id: id })
         .then((res) => {
           setFeedKey(res.data[0].feedkey);
         })
@@ -45,12 +45,12 @@ export default function NotifyResult({ navigation }) {
       })
       .catch((err) => console.log(err));
     axios
-      .post(`http://192.168.1.3:3001/ChangeCabinetState`, bodyServer)
+      .post(`http://192.168.1.4:3001/ChangeCabinetState`, bodyServer)
       .then((res) => {
         console.log(res.data, "update state cabinet server successful");
       });
     axios
-      .post(`http://192.168.1.3:3001/AddTransactionInProgress`, {
+      .post(`http://192.168.1.4:3001/AddTransactionInProgress`, {
         PhoneNumSender: phoneNumSender,
         PhoneNumReceiver: phoneNumReceiver,
         CabinetID: id,

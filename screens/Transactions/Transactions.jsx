@@ -11,7 +11,7 @@ export default function Transactions({ navigation }) {
   useEffect(() => {
     async function getHistoryTrades() {
       await axios
-        .get("http://192.168.1.3:3001/historyTrades", { User_ID })
+        .get("http://192.168.1.4:3001/historyTrades", { User_ID })
         .then((res) => setTrades([...res.data]))
         .catch((err) => console.log(err));
     }

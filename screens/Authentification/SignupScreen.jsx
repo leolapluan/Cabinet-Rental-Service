@@ -20,7 +20,7 @@ export default function Signup({ navigation }) {
   }
   function NotifySignup() {
     axios
-      .post(`http://192.168.1.3:3001/AddNewAccount`, {
+      .post(`http://192.168.1.4:3001/AddNewAccount`, {
         fullname: fullname,
         username: username,
         password: password,

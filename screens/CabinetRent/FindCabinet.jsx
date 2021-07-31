@@ -26,7 +26,7 @@ export default function FindCabinet({ navigation }) {
   React.useEffect(() => {
     async function getCabinet() {
       const response = await axios
-        .get(`http://192.168.1.3:3001/findCabinet`)
+        .get(`http://192.168.1.4:3001/findCabinet`)
         .then((res) => {
           setCabinetReady(res.data);
         })
