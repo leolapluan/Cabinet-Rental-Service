@@ -3,6 +3,7 @@ import * as React from "react";
 import { useSelector } from "react-redux";
 import axios from "axios";
 import { DataTable } from "react-native-paper";
+import { showMessage, hideMessage } from "react-native-flash-message";
 
 const optionsPerPage = [2, 3, 4];
 
@@ -92,6 +93,11 @@ export default function Unlock({ navigation }) {
       )
       .then((res) => {
         console.log(res.data, "unlock cabinet successful");
+        showMessage({
+          message: "Unlock cabinet successful",
+          type: "success",
+          icon:"success",
+        });
       })
       .catch((err) => console.log(err));
     //change cabinet state in cabinet
@@ -151,17 +157,6 @@ export default function Unlock({ navigation }) {
               />
             </DataTable.Cell>
           </DataTable.Row>
-          <DataTable.Pagination
-        page={page}
-        numberOfPages={3}
-        onPageChange={(page) => setPage(page)}
-        label="1-2 of 6"
-        optionsPerPage={optionsPerPage}
-        itemsPerPage={itemsPerPage}
-        setItemsPerPage={setItemsPerPage}
-        showFastPagination
-        optionsLabel={'Rows per page'}
-      />
         </DataTable>
       ) : (
         <Text>Thank you for using our service</Text>

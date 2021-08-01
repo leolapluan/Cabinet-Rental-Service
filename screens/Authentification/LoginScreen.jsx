@@ -1,5 +1,6 @@
 import axios from "axios";
 import * as React from "react";
+import { showMessage, hideMessage } from "react-native-flash-message";
 import {
   StyleSheet,
   Text,
@@ -8,6 +9,7 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { useDispatch } from "react-redux";
+
 import { isSignedIn } from "../../redux/actions";
 
 
@@ -25,10 +27,6 @@ export default function Login({ navigation }) {
         })
         .then((res) => {
           console.log(res);
-          // showMessage({
-          //   message: "Simple message",
-          //   type: "info",
-          // });
           dispatch(
             isSignedIn(
               true,
@@ -37,8 +35,18 @@ export default function Login({ navigation }) {
               res.data[0].id
             )
           );
+          showMessage({
+            message: "Welcome " + res.data[0].fullname,
+            type: "success",
+            icon:"success",
+          });
         })
-        .catch((err) => console.log(err));
+        .catch((err) => {console.log(err);  
+          showMessage({
+          message: "Incorect username or password",
+          type: "warning",
+          icon:"warning",
+        });});
     }
     checkLogin();
     // isSignedin = true;

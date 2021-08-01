@@ -4,6 +4,8 @@ import { NavigationContainer, useFocusEffect } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
+import FlashMessage from "react-native-flash-message";
+
 
 import FindCabinet from "./screens/CabinetRent/FindCabinet";
 import PaymentScreen from "./screens/CabinetRent/PaymentScreen";
@@ -92,6 +94,12 @@ export default function App() {
   let isSignedIn = useSelector((state) => state.isSignedIn);
   console.log(isSignedIn);
   return (
+    <>
+      <View style={{flex:0.06}}>
+      <Text>
+     <FlashMessage position="top" /> {/* <--- here as last component */}
+     </Text>
+     </View>
     <NavigationContainer>
       {!isSignedIn ? (
         <>
@@ -227,5 +235,6 @@ export default function App() {
         </>
       )}
     </NavigationContainer>
+</>
   );
 }
