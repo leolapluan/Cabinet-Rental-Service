@@ -4,15 +4,25 @@ import { useSelector } from "react-redux";
 import axios from "axios";
 import { DataTable } from "react-native-paper";
 
+const optionsPerPage = [2, 3, 4];
+
 export default function Unlock({ navigation }) {
   const userId = useSelector((state) => state.userId);
   const [transactionInfo, setTransactionInfo] = React.useState({});
   const [cabinetInfo, setCabinetInfo] = React.useState({});
   const [stateDevice, setStateDevice] = React.useState("");
   const [isFinished, setIsFinished] = React.useState(0);
+
+  const [page, setPage] = React.useState(0);
+  const [itemsPerPage, setItemsPerPage] = React.useState(optionsPerPage[0]);
+
+  React.useEffect(() => {
+    setPage(0);
+  }, [itemsPerPage]);
+
   const config = {
     headers: {
-      "X-AIO-Key": "aio_rhHs65QhcN9QxYG9hEK1MVnqPM0V",
+      "X-AIO-Key": "aio_hnBu16zUag3hOyfb0JSxeUzOdiTW",
     },
   };
 
@@ -141,6 +151,17 @@ export default function Unlock({ navigation }) {
               />
             </DataTable.Cell>
           </DataTable.Row>
+          <DataTable.Pagination
+        page={page}
+        numberOfPages={3}
+        onPageChange={(page) => setPage(page)}
+        label="1-2 of 6"
+        optionsPerPage={optionsPerPage}
+        itemsPerPage={itemsPerPage}
+        setItemsPerPage={setItemsPerPage}
+        showFastPagination
+        optionsLabel={'Rows per page'}
+      />
         </DataTable>
       ) : (
         <Text>Thank you for using our service</Text>

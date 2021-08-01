@@ -10,6 +10,7 @@ import {
 import { useDispatch } from "react-redux";
 import { isSignedIn } from "../../redux/actions";
 
+
 export default function Login({ navigation }) {
   const dispatch = useDispatch();
   const [username, setUsername] = React.useState("");
@@ -24,6 +25,10 @@ export default function Login({ navigation }) {
         })
         .then((res) => {
           console.log(res);
+          // showMessage({
+          //   message: "Simple message",
+          //   type: "info",
+          // });
           dispatch(
             isSignedIn(
               true,

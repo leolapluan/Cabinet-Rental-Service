@@ -10,28 +10,36 @@ import {
 } from "react-native";
 
 export default function PaymentOption({ navigation }) {
-  function PaymentOption() {
-    Linking.openURL("whatsapp://app");
-  }
-  const OpenSettingsButton = ({ children }) => {
-    const handlePress = useCallback(async () => {
-      // Open the custom settings if the app has one
-      await Linking.openURL("whatsapp://app");
-    }, []);
+  // function PaymentOption() {
+  //   Linking.openURL("whatsapp://app");
+  // }
+  // const OpenSettingsButton = ({ children }) => {
+  //   const handlePress = useCallback(async () => {
+  //     // Open the custom settings if the app has one
+  //     await Linking.openURL("whatsapp://app");
+  //   }, []);
 
-    return <Button title={children} onPress={handlePress} />;
+  //   return <Button title={children} onPress={handlePress} />;
+  // };
+  const handleDirection = () => {
+    navigation.navigate("Payment");
   };
   return (
     <View style={styles.container} onPress={() => PaymentOption()}>
       <Text style={styles.logo}>PAYMENT</Text>
 
-      <OpenSettingsButton>Momo Payment</OpenSettingsButton>
+      <TouchableOpacity
+        style={styles.airpayBtn}
+        onPress={() => handleDirection()}
+      >
+        <Text style={styles.loginText}>MOMO</Text>
+      </TouchableOpacity>
 
       <TouchableOpacity
         style={styles.airpayBtn}
-        onPress={() => PaymentOption()}
+        onPress={() => handleDirection()}
       >
-        <Text style={styles.loginText}>AIRPAY</Text>
+        <Text style={styles.loginText}>STRIPE</Text>
       </TouchableOpacity>
     </View>
   );
