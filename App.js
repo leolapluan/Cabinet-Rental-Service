@@ -95,7 +95,7 @@ export default function App() {
   console.log(isSignedIn);
   return (
     <>
-      <View style={{flex:0.06}}>
+      <View style={{flex:0.08}}>
       <Text>
      <FlashMessage position="top" /> {/* <--- here as last component */}
      </Text>

@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import axios from "axios";
 import { DataTable } from "react-native-paper";
 import { showMessage, hideMessage } from "react-native-flash-message";
+import { ScrollView } from "react-native";
 
 const optionsPerPage = [2, 3, 4];
 
@@ -14,16 +15,12 @@ export default function Unlock({ navigation }) {
   const [stateDevice, setStateDevice] = React.useState("");
   const [isFinished, setIsFinished] = React.useState(0);
 
-  const [page, setPage] = React.useState(0);
-  const [itemsPerPage, setItemsPerPage] = React.useState(optionsPerPage[0]);
 
-  React.useEffect(() => {
-    setPage(0);
-  }, [itemsPerPage]);
+
 
   const config = {
     headers: {
-      "X-AIO-Key": "aio_hnBu16zUag3hOyfb0JSxeUzOdiTW",
+      "X-AIO-Key": "aio_MLVC146cvrHg9rticUITyTBTwGgy",
     },
   };
 
@@ -125,11 +122,11 @@ export default function Unlock({ navigation }) {
       })
       .then((res) => console.log("Delete successful", res))
       .catch((err) => console.log(err));
-    window.location.reload();
   }
   return (
     <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
       {transactionInfo.Cabinet_ID ? (
+        <ScrollView style={{flex:1}} horizontal={true}>
         <DataTable>
           <DataTable.Header>
             <DataTable.Title>Number of cell</DataTable.Title>
@@ -158,6 +155,7 @@ export default function Unlock({ navigation }) {
             </DataTable.Cell>
           </DataTable.Row>
         </DataTable>
+        </ScrollView>
       ) : (
         <Text>Thank you for using our service</Text>
       )}

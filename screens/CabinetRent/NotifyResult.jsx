@@ -2,6 +2,7 @@ import { Button, View, Text } from "react-native";
 import * as React from "react";
 import axios from "axios";
 import { useSelector } from "react-redux";
+import { showMessage, hideMessage } from "react-native-flash-message";
 
 export default function NotifyResult({ navigation }) {
   const [feedKey, setFeedKey] = React.useState("");
@@ -19,7 +20,7 @@ export default function NotifyResult({ navigation }) {
   console.log(bodyServer);
   const config = {
     headers: {
-      "X-AIO-Key": "aio_hnBu16zUag3hOyfb0JSxeUzOdiTW",
+      "X-AIO-Key": "aio_MLVC146cvrHg9rticUITyTBTwGgy",
     },
   };
   React.useEffect(() => {
@@ -42,6 +43,11 @@ export default function NotifyResult({ navigation }) {
       )
       .then((res) => {
         console.log(res.data, "lock cabinet successful");
+        showMessage({
+          message: "Lock cabinet successful",
+          type: "success",
+          icon:"success",
+        });
       })
       .catch((err) => console.log(err));
     axios

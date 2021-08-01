@@ -2,7 +2,7 @@ import axios from "axios";
 import * as React from "react";
 import { useEffect } from "react";
 import { View, ScrollView } from "react-native";
-import { DataTable } from "react-native-paper";
+import { Button, DataTable } from "react-native-paper";
 import { useSelector } from "react-redux";
 
 export default function Transactions({ navigation }) {
@@ -11,7 +11,7 @@ export default function Transactions({ navigation }) {
   useEffect(() => {
     async function getHistoryTrades() {
       await axios
-        .get("http://192.168.1.4:3001/historyTrades", { User_ID })
+        .post("http://192.168.1.4:3001/historyTrades", { User_ID })
         .then((res) => setTrades([...res.data]))
         .catch((err) => console.log(err));
     }
@@ -20,8 +20,9 @@ export default function Transactions({ navigation }) {
 
   return (
     <ScrollView
-      style={{ backgroundColor: "rgb(166, 233, 241)", marginHorizontal: 20 }}
+      style={{ backgroundColor: "rgb(166, 233, 241)", marginHorizontal: 20,    }}
     >
+      <ScrollView horizontal={true}>
       <DataTable>
         <DataTable.Header>
           <DataTable.Title>ID</DataTable.Title>
@@ -46,6 +47,7 @@ export default function Transactions({ navigation }) {
           </DataTable.Row>
         ))}
       </DataTable>
+      </ScrollView>
     </ScrollView>
   );
 }
