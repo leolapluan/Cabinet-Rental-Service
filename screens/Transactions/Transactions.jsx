@@ -16,7 +16,7 @@ export default function Transactions({ navigation }) {
         .catch((err) => console.log(err));
     }
     getHistoryTrades();
-  }, []);
+  }, [trades]);
 
   return (
     <ScrollView

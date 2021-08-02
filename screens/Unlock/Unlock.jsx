@@ -70,7 +70,6 @@ const ViewScreen = (props) => {
   let setIsFinished=props.setIsFinished;
 
   return <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-    <Text>{transactionInfo.Cabinet_ID}</Text>
   {transactionInfo.Cabinet_ID ? (
     <ScrollView style={{flex:1}} horizontal={true}>
     <DataTable>
@@ -119,16 +118,15 @@ export default function Unlock({ navigation }) {
   React.useEffect(() => {
     async function getTransaction() {
       const response = await axios
-        .post(`http://192.168.1.4:3001/getCabinetByUser`, { userID: userId })
+        // .post(`http://192.168.1.4:3001/getCabinetByUser`, { userID: userId })
+        .get(`http://192.168.1.4:3001/getCabinetByUser?userId=${userId}`)
         .then((res) => {
-          console.log("Transaction:", res.data[0]);
-          setTransactionInfo({ ...res.data[0] });
+          setTransactionInfo(res.data[0]?res.data[0]:{});
         })
         .catch((err) => console.log(err));
     }
     getTransaction();
-    console.log(transactionInfo);
-  }, []);
+  }, [transactionInfo]);
   //get cabinet info by id
   React.useEffect(() => {
     async function getCabinet() {
