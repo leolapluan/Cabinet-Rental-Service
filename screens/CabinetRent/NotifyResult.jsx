@@ -20,7 +20,7 @@ export default function NotifyResult({ navigation }) {
   console.log(bodyServer);
   const config = {
     headers: {
-      "X-AIO-Key": "aio_MLVC146cvrHg9rticUITyTBTwGgy",
+      "X-AIO-Key": "aio_sgAD13gYLp3JlnGZ8PVEPS1dfEp0",
     },
   };
   React.useEffect(() => {
