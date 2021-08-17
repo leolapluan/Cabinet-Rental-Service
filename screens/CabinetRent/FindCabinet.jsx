@@ -1,9 +1,10 @@
-import { Button, View, Text } from "react-native";
+import { Button, View, Text, StyleSheet } from "react-native";
 import * as React from "react";
 import { RadioButton } from "react-native-paper";
 import { useDispatch } from "react-redux";
 import { storeCabinetSelect } from "../../redux/actions";
 import axios from "axios";
+
 
 export default function FindCabinet({ navigation }) {
   const dispatch = useDispatch();
@@ -48,6 +49,7 @@ export default function FindCabinet({ navigation }) {
 
   return (
     <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+      <Text>Please select a suitable cells</Text>
       <RadioButton
         value="20"
         status={checked === "20" ? "checked" : "unchecked"}
@@ -71,6 +73,7 @@ export default function FindCabinet({ navigation }) {
       <Text>40x40cm Quantity: {cabinets40.length}</Text>
       {/* <Button title="Confirm" onPress={() => navigation.navigate("Payment")} /> */}
       <Button
+        color="#9579d1"
         title="Confirm"
         onPress={() => HandleConfirm()}
         disabled={cabinetReady.length == 0 ? true : false}

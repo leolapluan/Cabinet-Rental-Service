@@ -11,7 +11,7 @@ export default function NotifyResult({ navigation }) {
   let phoneNumReceiver = useSelector((state) => state.phoneNumReceiver);
   let userId = useSelector((state) => state.userId);
   let bodyParameter = {
-    value: 180,
+    value: "{\"id\":\"17\",\"name\":\"SERVO\",\"data\":\"180\",\"unit\":\"degree\"}",
   };
   let bodyServer = {
     state: "in_progress",
@@ -20,7 +20,7 @@ export default function NotifyResult({ navigation }) {
   console.log(bodyServer);
   const config = {
     headers: {
-      "X-AIO-Key": "aio_sgAD13gYLp3JlnGZ8PVEPS1dfEp0",
+      "X-AIO-Key": "aio_MLVC146cvrHg9rticUITyTBTwGgy",
     },
   };
   React.useEffect(() => {
@@ -69,10 +69,7 @@ export default function NotifyResult({ navigation }) {
   return (
     <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
       <Text>Payment successful. Your cabinet is ready!!!</Text>
-      <Text>
-        Have you put your things into the cell yet? Then lock the door now!
-      </Text>
-      <Button title="Lock Door" onPress={() => HandleLockDoor()} />
+      <Button color="#9579d1" title="Lock Door" onPress={() => HandleLockDoor()} />
     </View>
   );
 }

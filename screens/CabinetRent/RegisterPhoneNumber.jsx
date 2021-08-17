@@ -28,7 +28,7 @@ function RegisterPhoneNumber({ navigation }) {
           setPhoneNumReceiver(phoneNumReceiver)
         }
       />
-      <Button title="Confirm" onPress={() => HandleConfirm()} />
+      <Button color="#9579d1" title="Confirm" onPress={() => HandleConfirm()} />
     </View>
   );
 }

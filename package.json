@@ -17,6 +17,7 @@
     "expo": "^41.0.1",
     "expo-cli": "^4.5.2",
     "expo-status-bar": "~1.0.4",
+    "native-base": "^3.0.7",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-native": "0.63.2",
@@ -24,7 +25,9 @@
     "react-native-gesture-handler": "~1.10.2",
     "react-native-paper": "^4.9.1",
     "react-native-reanimated": "~2.1.0",
+    "react-native-safe-area-context": "^3.2.0",
     "react-native-screens": "~3.0.0",
+    "react-native-svg": "^12.1.1",
     "react-native-vector-icons": "^8.1.0",
     "react-native-web": "~0.13.12",
     "react-redux": "^7.2.4",
@@ -33,6 +36,8 @@
     "redux-persist": "^6.0.0",
     "redux-thunk": "^2.3.0",
     "strict-uri-encode": "^2.0.0",
+    "styled-components": "^5.3.0",
+    "styled-system": "^5.1.5",
     "yet": "^0.1.0"
   },
   "devDependencies": {

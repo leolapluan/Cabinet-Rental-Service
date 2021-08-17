@@ -6,6 +6,7 @@ import {
   TextInput,
   TouchableOpacity,
 } from "react-native";
+import { alignContent } from "styled-system";
 
 export default function NotifySignup({ navigation }) {
   function Login() {
@@ -15,7 +16,7 @@ export default function NotifySignup({ navigation }) {
   //render(){
   return (
     <View style={styles.container}>
-      <Text style={styles.logo}>ĐĂNG KÝ THÀNH CÔNG !</Text>
+      <Text style={styles.logo}>REGISTER SUCCESSFUL !</Text>
       <TouchableOpacity style={styles.homeBtn} onPress={() => Login()}>
         <Text style={styles.loginText}>HOME</Text>
       </TouchableOpacity>
@@ -26,20 +27,21 @@ export default function NotifySignup({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "rgb(166, 233, 241)",
+    backgroundColor: "#ffffff",
     alignItems: "center",
     justifyContent: "center",
   },
   logo: {
     fontWeight: "bold",
     fontSize: 35,
-    color: "#fb5b5a",
+    color: "#9579d1",
     marginBottom: 40,
-  },
+    marginLeft:30,
+},
 
   homeBtn: {
     width: "50%",
-    backgroundColor: "#fb5b5a",
+    backgroundColor: "#9579d1",
     borderRadius: 25,
     height: 50,
     alignItems: "center",

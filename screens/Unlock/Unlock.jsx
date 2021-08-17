@@ -8,13 +8,13 @@ import { ScrollView } from "react-native";
 
 const config = {
   headers: {
-    "X-AIO-Key": "aio_sgAD13gYLp3JlnGZ8PVEPS1dfEp0",
+    "X-AIO-Key": "aio_MLVC146cvrHg9rticUITyTBTwGgy",
   },
 };
 function handleConfirm(feedKey, cabinetID,setIsFinished,transactionInfo) {
   setIsFinished(1);
   let bodyParameter = {
-    value: 0,
+    value: ""{\"id\":\"17\",\"name\":\"SERVO\",\"data\":\"0\",\"unit\":\"degree\"}",
   };
   let bodyServer = {
     state: "ready",

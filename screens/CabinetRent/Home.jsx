@@ -35,20 +35,20 @@ export default function Home({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "rgb(166, 233, 241)",
+    backgroundColor: "#ffffff",
     alignItems: "center",
     justifyContent: "center",
   },
   logo: {
     fontWeight: "bold",
     fontSize: 50,
-    color: "#fb5b5a",
+    color: "#9579d1",
     marginBottom: 40,
   },
 
   guidoBtn: {
     width: "80%",
-    backgroundColor: "#fb5b5a",
+    backgroundColor: "#9579d1",
     borderRadius: 25,
     height: 50,
     alignItems: "center",
@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
   },
   nhandoBtn: {
     width: "80%",
-    backgroundColor: "#fb5b5a",
+    backgroundColor: "#9579d1",
     borderRadius: 25,
     height: 50,
     alignItems: "center",
@@ -67,6 +67,6 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   loginText: {
-    color: "black",
+    color: "white",
   },
 });

@@ -94,19 +94,19 @@ export default function Login({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "rgb(166, 233, 241)",
+    backgroundColor: "#ffffff",
     alignItems: "center",
     justifyContent: "center",
   },
   logo: {
     fontWeight: "bold",
     fontSize: 50,
-    color: "#fb5b5a",
+    color: "#9579d1",
     marginBottom: 40,
   },
   inputView: {
     width: "80%",
-    backgroundColor: "rgb(227, 235, 236)",
+    backgroundColor: "#e1c7f8",
     borderRadius: 25,
     height: 50,
     marginBottom: 20,
@@ -123,7 +123,7 @@ const styles = StyleSheet.create({
   },
   loginBtn: {
     width: "80%",
-    backgroundColor: "#fb5b5a",
+    backgroundColor: "#9579d1",
     borderRadius: 25,
     height: 50,
     alignItems: "center",
