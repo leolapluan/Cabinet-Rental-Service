@@ -14,7 +14,7 @@ const config = {
 function handleConfirm(feedKey, cabinetID,setIsFinished,transactionInfo) {
   setIsFinished(1);
   let bodyParameter = {
-    value: ""{\"id\":\"17\",\"name\":\"SERVO\",\"data\":\"0\",\"unit\":\"degree\"}",
+    value: "{\"id\":\"17\",\"name\":\"SERVO\",\"data\":\"0\",\"unit\":\"degree\"}",
   };
   let bodyServer = {
     state: "ready",
